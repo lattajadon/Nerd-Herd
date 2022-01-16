@@ -25,9 +25,9 @@ public class PlayMenu extends AppCompatActivity {
     public void startPressed(View view){
         Intent intent = new Intent(this, GameScreen.class);
         if(diffSwitch.isChecked()){
-            diff = "easy";
+            diff = "hard";
         }else{
-            diff="hard";
+            diff = "easy";
         }
         intent.putExtra(EXTRA_MESSAGE, diff);
         startActivity(intent);

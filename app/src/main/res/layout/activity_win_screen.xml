@@ -6,4 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".WinScreen">
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/peach">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/peach">
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/fireworks"
+                android:layout_width="wrap_content"
+                android:layout_height="560dp"
+                android:layout_marginStart="-160dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="-160dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/fireworks" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:layout_weight="1"
+        android:text="CONGRATULATIONS!"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

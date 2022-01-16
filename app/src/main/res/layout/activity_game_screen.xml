@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/peach"
+    tools:context=".GameScreen">
 
-    <Button
+    <ImageButton
         android:id="@+id/door10"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -14,10 +15,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door10Pressed"
         android:text="Door 10"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door9"
         app:layout_constraintTop_toBottomOf="@+id/door7" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door8"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -25,10 +29,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door8Pressed"
         android:text="Door 8"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door7"
         app:layout_constraintTop_toBottomOf="@+id/door5" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door9"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -36,10 +43,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door9Pressed"
         android:text="Door 9"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/door6" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door3"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -47,10 +57,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door3Pressed"
         android:text="Door 3"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/door0" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door4"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -58,10 +71,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door4Pressed"
         android:text="Door 4"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door3"
         app:layout_constraintTop_toBottomOf="@+id/door1" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door5"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -69,10 +85,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door5Pressed"
         android:text="Door 5"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door4"
         app:layout_constraintTop_toBottomOf="@+id/door2" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door11"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -80,21 +99,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door11Pressed"
         android:text="Door 11"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door10"
         app:layout_constraintTop_toBottomOf="@+id/door8" />
 
-    <Button
-        android:id="@+id/door0"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="Door0Pressed"
-        android:text="Door 0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
+    <ImageButton
         android:id="@+id/door6"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -102,10 +113,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door6Pressed"
         android:text="Door 6"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/door3" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door7"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -113,10 +127,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door7Pressed"
         android:text="Door 7"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door6"
         app:layout_constraintTop_toBottomOf="@+id/door4" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door1"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -124,10 +141,13 @@
         android:layout_marginTop="16dp"
         android:onClick="Door1Pressed"
         android:text="Door 1"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door0"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/door2"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -135,23 +155,14 @@
         android:layout_marginTop="16dp"
         android:onClick="Door2Pressed"
         android:text="Door 2"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
         app:layout_constraintStart_toEndOf="@+id/door1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/door2"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button13"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -159,57 +170,132 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="32dp"
+        android:background="@android:color/transparent"
+        android:onClick="CardPressed"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/light_deck"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/door10"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/door0"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="Door0Pressed"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/oranges_door"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/door2"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/treasure_chest" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/animationStar"-->
+<!--        android:layout_width="10dp"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:translationZ="90dp"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        app:srcCompat="@drawable/purple_star" />-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/openingChest"
+        android:layout_width="162dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="-8dp"
+        android:layout_marginTop="-32dp"
+        android:layout_marginEnd="-24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/door2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/opening_chest" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="66dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
+        android:id="@+id/star0"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@android:drawable/star_big_off" />
+        app:layout_constraintStart_toEndOf="@+id/door5"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/blank_star" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="66dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@android:drawable/star_big_off" />
+        android:id="@+id/star1"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/star0"
+        app:layout_constraintTop_toBottomOf="@+id/star0"
+        app:srcCompat="@drawable/blank_star" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="66dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@android:drawable/star_big_off" />
+        android:id="@+id/star2"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/star1"
+        app:layout_constraintTop_toBottomOf="@+id/star1"
+        app:srcCompat="@drawable/blank_star" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="66dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:srcCompat="@android:drawable/star_big_off" />
+        android:id="@+id/star3"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/star2"
+        app:layout_constraintTop_toBottomOf="@+id/star2"
+        app:srcCompat="@drawable/blank_star" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="66dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@android:drawable/star_big_off" />
+        android:id="@+id/star4"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/star3"
+        app:layout_constraintTop_toBottomOf="@+id/star3"
+        app:srcCompat="@drawable/blank_star" />
+
+    <ImageView
+        android:id="@+id/star5"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/star4"
+        app:layout_constraintTop_toBottomOf="@+id/star4"
+        app:srcCompat="@drawable/blank_star" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
