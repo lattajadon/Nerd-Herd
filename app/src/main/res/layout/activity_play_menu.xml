@@ -7,31 +7,34 @@
     tools:context=".PlayMenu">
 
     <FrameLayout
+        android:id="@+id/frameLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/peach">
+        android:background="@color/black">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/space_bg">
+            android:background="@color/peach">
 
         </LinearLayout>
     </FrameLayout>
+
 
     <TextView
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Select Play Style"
         android:textAlignment="center"
-        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,11 +45,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="50dp"
         android:layout_marginEnd="162dp"
         android:text="ToggleButton"
         android:textOff="EASY"
         android:textOn="HARD"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
@@ -56,32 +59,69 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="96dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Difficulty"
-        android:textSize="50dp"
-        android:textColor="@color/white"
-
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
-    <Button
-        android:id="@+id/door4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="130dp"
-        android:onClick="startPressed"
+
+    <ImageButton
+        android:id="@+id/englishButton"
+        android:layout_width="278dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="150dp"
+        android:background="@android:color/transparent"
+        android:onClick="englishPressed"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/english_button"
         android:text="Start Game"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diffButton" />
+
+    <ImageButton
+        android:id="@+id/mathButton"
+        android:layout_width="268dp"
+        android:layout_height="147dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="150dp"
+        android:background="@android:color/transparent"
+        android:onClick="mathPressed"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/math_button"
+        android:text="Start Game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/englishButton" />
+
+    <ImageButton
+        android:id="@+id/scienceButton"
+        android:layout_width="267dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="180dp"
+        android:background="@android:color/transparent"
+        android:onClick="sciencePressed"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/science_button"
+        android:text="Start Game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,12 +22,32 @@ public class PlayMenu extends AppCompatActivity {
 
     }
 
-    public void startPressed(View view){
+    public void englishPressed(View view){
         Intent intent = new Intent(this, GameScreen.class);
         if(diffSwitch.isChecked()){
-            diff = "hard";
+            diff = "hard,english";
         }else{
-            diff = "easy";
+            diff = "easy,english";
+        }
+        intent.putExtra(EXTRA_MESSAGE, diff);
+        startActivity(intent);
+    }
+    public void sciencePressed(View view){
+        Intent intent = new Intent(this, GameScreen.class);
+        if(diffSwitch.isChecked()){
+            diff = "hard,science";
+        }else{
+            diff = "easy,science";
+        }
+        intent.putExtra(EXTRA_MESSAGE, diff);
+        startActivity(intent);
+    }
+    public void mathPressed(View view){
+        Intent intent = new Intent(this, GameScreen.class);
+        if(diffSwitch.isChecked()){
+            diff = "hard,math";
+        }else{
+            diff = "easy,math";
         }
         intent.putExtra(EXTRA_MESSAGE, diff);
         startActivity(intent);

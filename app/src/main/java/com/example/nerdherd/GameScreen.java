@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -30,6 +31,12 @@ public class GameScreen extends AppCompatActivity {
     SideBar bar;
     //List<Ball> balls = new ArrayList<>();
     ImageView imageView;
+    String question, optionA, optionB, optionC;
+    int correctAns;
+    English english;
+    Science science;
+    Math math;
+    int Subject = -1;
     Door[] board;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +45,26 @@ public class GameScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
         String diff = intent.getStringExtra(PlayMenu.EXTRA_MESSAGE);
-        if(diff.equals("easy")){
+        String[] parts = diff.split(",");
+        if(parts[0].equals("easy")){
             easy = TRUE;
         }else{
             easy = FALSE;
         }
+        if(parts[1].equals("math")){
+            Subject = 0;
+        }else if(parts[1].equals("science")){
+            Subject = 1;
+        }else if(parts[1].equals("english")){
+            Subject = 2;
+        }
+
         board = makeBoard(easy);
         for (int i = 0; i < 12; i++) {
             int id = getResources().getIdentifier("door"+i, "id", getPackageName());
             findViewById(id).setClickable(false);
         }
+
     }
 
 
@@ -79,6 +96,19 @@ public class GameScreen extends AppCompatActivity {
         bar = new SideBar(numSlots);
         generateStars(numSlots);
 
+        english = new English(this);
+        english.createDatabase();
+        english.openDatabase();
+        english.getWritableDatabase();
+        math = new Math(this);
+        math.createDatabase();
+        math.openDatabase();
+        math.getWritableDatabase();
+        science = new Science(this);
+        science.createDatabase();
+        science.openDatabase();
+        science.getWritableDatabase();
+
         return board;
     }
 
@@ -87,33 +117,71 @@ public class GameScreen extends AppCompatActivity {
             int star_id = getResources().getIdentifier("star"+i, "id", getPackageName());
             findViewById(star_id).setVisibility(View.VISIBLE);
         }
+
     }
 
 
 
     public void CardPressed(View view){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        // Add the buttons
-        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+        //get question information
+        Random rand = new Random();
+        int randNum = rand.nextInt(14)+1;
+        if(Subject == 0){
+            question = math.readQuestion(randNum);
+            optionA = math.readOptionA(randNum);
+            optionB = math.readOptionB(randNum);
+            optionC = math.readOptionC(randNum);
+            correctAns = math.readAnswer(randNum);
+        }else if(Subject == 1){
+            question = science.readQuestion(randNum);
+            optionA = science.readOptionA(randNum);
+            optionB = science.readOptionB(randNum);
+            optionC = science.readOptionC(randNum);
+            correctAns = science.readAnswer(randNum);
+        }else{
+            question = english.readQuestion(randNum);
+            optionA = english.readOptionA(randNum);
+            optionB = english.readOptionB(randNum);
+            optionC = english.readOptionC(randNum);
+            correctAns = english.readAnswer(randNum);
+        }
+
+        String[] options = {optionA, optionB, optionC};
+
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        AlertDialog.Builder questionBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder correctionBuilder = new AlertDialog.Builder(this);
+        // Building the correction dialog for wrong answers
+        correctionBuilder.setMessage(question + "\nThe correct answer was: " + options[correctAns-1] + "\nPlease try another question! :)");
+        correctionBuilder.setPositiveButton("I understand.", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // User clicked OK button
-                for (int i = 0; i < 12; i++) {
-                    int door_id = getResources().getIdentifier("door"+i, "id", getPackageName());
-                    findViewById(door_id).setClickable(true);
+            }});
+
+        questionBuilder.setTitle(question);
+        questionBuilder.setItems(options, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if(id+1 == correctAns){
+                    Toast toast = Toast.makeText(context, "Great Job! Choose a door to open!", duration);
+                    toast.show();
+                    findViewById(R.id.cardDeck).setClickable(false);
+                    for (int i = 0; i < 12; i++) {
+                        int door_id = getResources().getIdentifier("door"+i, "id", getPackageName());
+                        findViewById(door_id).setClickable(true);
+                    }
+
+                }else{
+                    AlertDialog correctionDialog = correctionBuilder.create();
+                    correctionDialog.show();
+                    Toast toast = Toast.makeText(context, "Not quite! Try another question!", duration);
+                    toast.show();
                 }
             }
         });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // User cancelled the dialog
-            }
-        });
-         // Set other dialog properties
-
 
         // Create the AlertDialog
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        AlertDialog questionDialog = questionBuilder.create();
+        questionDialog.show();
     }
 
     public void winnerState(){
@@ -143,19 +211,14 @@ public class GameScreen extends AppCompatActivity {
             if (door.isBall()) { // check if door has ball
                 if (bar.addBall()) {
                     //YOU WIN
-//
                     winnerState();
                 }
-                text = Integer.toString(bar.getCurFilled());
                 star = 1;
             } else {
-                text = "NO STAR";
                 star = 0;
             }
             int duration = Toast.LENGTH_SHORT;
             board[doorIndex].chooseDoor();
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
 
             for (int i = 0; i < 12; i++) {
                 int id = getResources().getIdentifier("door"+i, "id", getPackageName());
@@ -169,17 +232,12 @@ public class GameScreen extends AppCompatActivity {
         }
 
 
-        ImageView animationStar;
         ImageButton btn = (ImageButton)findViewById(doorId);
         final ImageButton doorImg = (ImageButton) findViewById(doorId);
         if(star == 1){
             int star_id = getResources().getIdentifier("star"+(bar.getCurFilled()-1), "id", getPackageName());
             ImageView starImage = (ImageView)findViewById(star_id);
             starImage.setImageResource(R.drawable.purple_star);
-//            animationStar = (ImageView) findViewById(R.id.animationStar);
-//            Animation starZoom = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.grow);
-//            animationStar.setVisibility(View.VISIBLE);
-//            animationStar.startAnimation(starZoom);
             btn.setImageResource(R.drawable.opened_door_star);
             doorImg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -196,6 +254,7 @@ public class GameScreen extends AppCompatActivity {
                 }
             });
         }
+        findViewById(R.id.cardDeck).setClickable(true);
     }
 
     public void Door0Pressed(View view){
